@@ -1,0 +1,5 @@
+.venv
+.node_modules
+# Project exclude paths
+/dist/
+/node_modules/
