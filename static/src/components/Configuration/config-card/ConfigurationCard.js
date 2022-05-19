@@ -1,15 +1,30 @@
-import React from 'react';
-
+import React, {useEffect, useState} from 'react';
+import UserService from "../../../servicers/userService";
+import ConfigInfoInput from "../conf-info/ConfigInfoInput";
 
 const ConfigurationCard = () => {
 
+    const service = new UserService();
 
-    const warning2 = this.getElementsByClassName("message")[0];
+    const [user,setUser] = useState({})
 
-    // function Console(warning2) {
-    //     console.log(warning2.innerText);
-    //
-    // }
+    useEffect(() => {
+        // const warning2 = document.getElementsByClassName("message")[0];
+        // console.log(warning2.innerText);
+       (async () => {
+            console.log('Request to backend!');
+            const user = await service.getUserInfo();
+            setUser(user)
+        })()
+    }, [])
+
+    function changeUsername(){
+        setUser({username: 'Egor'})
+    }
+
+    function onChangeInput(inputValue){
+        setUser({username: inputValue})
+    }
 
     return (
         <div className="conf__card">
@@ -20,9 +35,9 @@ const ConfigurationCard = () => {
                 <div className="conf__info__warning warning">
                     <span className="warning__output message">Write your username and password!</span>
                 </div>
-                <div className="conf__info__username username">
-                    <input type="text" className="username__input" placeholder="Username"/>
-                </div>
+                <ConfigInfoInput onChange = {onChangeInput} value = {user.username} placeholder='My second username' />
+                <ConfigInfoInput value = {user.username} placeholder='My third username' />
+                <ConfigInfoInput value = {user.username} placeholder='My fouth username' />
                 <div className="conf__info__password password">
                     <input type="text" className="password__input" placeholder="Password"/>
                 </div>
@@ -34,7 +49,7 @@ const ConfigurationCard = () => {
                 </div>
             </div>
             <div className="conf__button change-info">
-                <button className="change-info__button">Apply</button>
+                <button className="change-info__button" onClick={changeUsername}>Apply</button>
             </div>
         </div>
     );

@@ -14,10 +14,10 @@ module.exports = {
             template: "./templates/main/main.html",
             filename: 'main.html',
         }),
-        // new HTMLWebpackPlugin({
-        //     template: "./templates/authorization/auth.html",
-        //     filename: 'auth.html',
-        // }),
+        new HTMLWebpackPlugin({
+            template: "./templates/authorization/auth.html",
+            filename: 'auth.html',
+        }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',

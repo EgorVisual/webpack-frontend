@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import TodoList from "./components/Todo/todo-list/TodoList";
 import {Route, BrowserRouter as Router, Link, Routes, NavLink} from "react-router-dom";
 import Main from "./Pages/Main";
@@ -7,7 +7,6 @@ import TodoMenu from "./components/Todo/todo-menu/TodoMenu";
 import TodoCard from "./components/Todo/todo-card/TodoCard";
 import TodoMain from "./components/Todo/todo-main/TodoMain";
 import ConfigurationMain from "./components/Configuration/config-main/ConfigurationMain";
-
 
 export default function App() {
     const [todos, setTodos] = useState([
@@ -31,6 +30,8 @@ export default function App() {
             return todo;
         }))
     }
+
+
 
     function getAuthorizationPage() {
         window.location.href = '../../../webpack-frontend/dist/auth.html'
