@@ -11,7 +11,7 @@ window.onload = function () {
                 localStorage.setItem('UserId', activeUserId)
                 if (activeUserId !== 0) {
 
-                    window.location.href = 'http://localhost:63342/webpack-frontend/templates/main/main.html';
+                    window.location.href = '../../webpack-frontend/dist/main.html';
                 }
             },
             error: function (response, status) {
