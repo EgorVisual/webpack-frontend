@@ -1,17 +1,16 @@
 import TodoItem from "./todo-item";
-import '../styles/main.scss'
-import '../styles/todo.scss'
-import '../styles/authorization.scss'
+import './static/styles/main.scss'
+import './static/styles/todo.scss'
+import './static/styles/authorization.scss'
 import App from "./App";
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {createRoot} from "react-dom/client";
+import { render } from 'react-dom'
+render(<App />, document.getElementById('root'))
 
-const root = createRoot(document.getElementById('root'))
-root.render(
-    <App/>
-)
 
+//TODO: разнести все эти функции по компонентам
 // window.onload = function () {
     function fetchTasks(filter) {
         const host = "http://localhost:8000";
