@@ -13,10 +13,10 @@ module.exports = {
         new HTMLWebpackPlugin({
             template: path.resolve(__dirname, './src/index.html')
         }),
-        // new HTMLWebpackPlugin({
-        //     template: "./templates/authorization/auth.html",
-        //     filename: 'auth.html',
-        // }),
+        new HTMLWebpackPlugin({
+            template: "./src/static/templates/authorization/auth.html",
+            filename: 'auth.html',
+        }),
         new CleanWebpackPlugin(),
         new MiniCssExtractPlugin({
             filename: '[name].[contenthash].css',
