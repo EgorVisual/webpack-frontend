@@ -1,3 +1,4 @@
+//TODO: от этого класса нужно избавиться, должен быть react компонент TodoItem
 class TodoItem{
     constructor(title,isActive,id) {
         this.title = title;

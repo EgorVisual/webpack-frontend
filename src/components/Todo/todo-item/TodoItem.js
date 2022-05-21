@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../../../styles/todo.scss'
+import '../../../static/styles/todo.scss'
 
 const TodoItem = ({id, title, isActive, onChange}) => {
     const classNames = ['todo__item todo-item']

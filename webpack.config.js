@@ -4,18 +4,17 @@ const {CleanWebpackPlugin} = require('clean-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const CssMinimizerPlugin = require("css-minimizer-webpack-plugin")
 module.exports = {
-    entry: ["@babel/polyfill", './static/src/index.js'],
+    entry: ["@babel/polyfill", './src/index.js'],
     output: {
         filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'dist')
     },
     plugins: [
         new HTMLWebpackPlugin({
-            template: "./templates/main/main.html",
-            filename: 'main.html',
+            template: path.resolve(__dirname, './src/index.html')
         }),
         new HTMLWebpackPlugin({
-            template: "./templates/authorization/auth.html",
+            template: "./src/static/templates/authorization/auth.html",
             filename: 'auth.html',
         }),
         new CleanWebpackPlugin(),
@@ -25,7 +24,8 @@ module.exports = {
     ],
     devServer: {
         port: 8080,
-        hot: true
+        hot: true,
+        historyApiFallback: true
     },
     optimization: {
         minimizer: [
