@@ -4,22 +4,22 @@ import AuthStatus from "./auth/AuthStatus";
 
 const NavigationPanel = () => {
   return (
-    <div>
-      <AuthStatus />
+    <div className='navigation-panel'>
       <ul>
-        <li>
+        <span className='navigation-panel__button'>
           <Link to="/">Public Page</Link>
-        </li>
-        <li>
+        </span>
+        <span className='navigation-panel__button'>
           <Link to="/protected">Protected Page</Link>
-        </li>
-        <li>
+        </span>
+        <span className='navigation-panel__button'>
           <Link to="/config">Config Page</Link>
-        </li>
-        <li>
+        </span>
+        <span className='navigation-panel__button'>
           <Link to="/main">Main Page</Link>
-        </li>
+        </span>
       </ul>
+        <AuthStatus />
     </div>
   );
 };

@@ -6,13 +6,13 @@ const AuthStatus = () => {
   let navigate = useNavigate();
 
   if (!auth.user) {
-    return( <>{auth.user} <p>You are not logged in.</p></>)
+    return( <><p>You are not logged in.</p></>)
   }
 
   return (
     <p>
 
-      Welcome {auth.user}!{" "}
+      Welcome {auth.user.username}!{" "}
       <button
         onClick={() => {
           auth.signOut(() => navigate("/"));

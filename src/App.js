@@ -5,9 +5,9 @@ import NavigationPanel from "./modules/NavigationPanel";
 import RequireAuth from "./modules/auth/RequireAuth";
 import LoginPage from "./pages/LoginPage";
 import TodoMain from "./components/Todo/todo-main/TodoMain";
-import ConfigurationMain from "./components/Configuration/config-main/ConfigurationMain";
 import ProtectedPage from "./pages/ProtectedPage";
 import PublicPage from "./pages/PublicPage";
+import Configuration from "./pages/Configuration";
 
 export default function App() {
 
@@ -31,7 +31,7 @@ export default function App() {
                   </RequireAuth>}/>
                 <Route exact path="/config" element={
                   <RequireAuth>
-                    <ConfigurationMain/>
+                    <Configuration/>
                   </RequireAuth>}/>
 
             </Routes>

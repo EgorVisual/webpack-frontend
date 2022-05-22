@@ -1,9 +1,10 @@
 import React from 'react';
+import ConfigurationCard from "../components/Configuration/config-card/ConfigurationCard";
 
 const Configuration = () => {
     return (
-        <div>
-            <h1>Configuration</h1>
+        <div className="conf__page">
+            <ConfigurationCard/>
         </div>
     );
 };
