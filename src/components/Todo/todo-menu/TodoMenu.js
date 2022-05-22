@@ -1,12 +1,9 @@
 import React from 'react';
+import '../../../static/styles/todo.scss'
 
 const TodoMenu = () => {
-        function getAuthorizationPage(){
-        window.location.href = '../../../webpack-frontend/dist/auth.html'
-    }
     return (
         <div className="todo__menu menu">
-            <button className="menu__exit menu-button" onClick={getAuthorizationPage}>Exit</button>
             <span className="menu__counter">items left</span>
             <div className="menu__filter menu-filter">
                 <button className="menu-filter__button menu-button filter-all" >All</button>

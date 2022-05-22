@@ -3,6 +3,7 @@ import { useState } from 'react'
 import authorization from "../../servicers/auth";
 import { AuthContext } from "../../context";
 import updateUser from "../../servicers/updateInfo";
+import createUser from "../../servicers/createUser";
 
 export default function AuthProvider({ children }) {
     let [user, setUser] = useState(null);
@@ -26,13 +27,13 @@ export default function AuthProvider({ children }) {
         });
     };
 
-    let createNewUser = (userInfo, callback) => {
-        return updateUser.updateInfo(user.id, setUser, userInfo,() => {
+    let createNewUser = (userLogin,userPassword,userFullname, callback) => {
+        return createUser.createNewUser(setUser, userLogin,userPassword,userFullname,() => {
             callback();
         });
     };
 
-    let value = { user, signIn, signOut, updateInfo };
+    let value = { user, signIn, signOut, updateInfo, createNewUser };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

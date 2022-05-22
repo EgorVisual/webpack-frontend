@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoMenu from "../todo-menu/TodoMenu";
+import '../../../static/styles/todo.scss'
 
 const TodoCard = () => {
 

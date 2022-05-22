@@ -29,6 +29,21 @@ const LoginPage = () => {
         });
     }
 
+    function registrate(event) {
+        event.preventDefault();
+
+        let formData = new FormData(event.currentTarget);
+        let username = formData.get("username");
+        let password = formData.get("password");
+        let fullname = formData.get("fullname");
+
+        if (username && password && fullname) {
+            auth.createNewUser(username, password, fullname, () => {
+                navigate(from, {replace: true});
+            });
+        }
+    }
+
     return (
         <div>
             <p>You must log in or register a new user to view the page at {from}</p>
@@ -38,7 +53,16 @@ const LoginPage = () => {
                     <div>Password: <input name="password" type="text"/></div>
                 </label>{" "}
                 <button type="submit">Login</button>
-                <button type="registration">Registrate</button>
+                <button type="reset">Reset</button>
+            </form>
+            <form onSubmit={registrate}>
+                <label>
+                    <div>Username: <input name="username" type="text"/></div>
+                    <div>Password: <input name="password" type="text"/></div>
+                    <div>Fullname: <input name="fullname" type="text"/></div>
+                </label>{" "}
+                <button type="submit">Registrate</button>
+                <button type="reset">Reset</button>
             </form>
         </div>
     );

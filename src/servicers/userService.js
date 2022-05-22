@@ -20,11 +20,16 @@ export default class UserService {
         return res.data
     }
 
-    async createNewUserRequest(userId, userInfo) {
+    async createNewUserRequest(userLogin, userPassword, userFullname) {
+        const user = (await api.get('/api/user/')).data.filter(user => ((user.username === userLogin) || (user.password === userPassword)))[0];
+        console.log(user)
+        if(user){
+            return null
+        }
         const res = (await api.post('/api/user/', {
-            username: userInfo.username,
-            password: userInfo.password,
-            fullname: 'none',
+            username: userLogin,
+            password: userPassword,
+            fullname: userFullname,
             role: 'none',
             group: 'none'
         }));
