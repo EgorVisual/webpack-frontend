@@ -6,6 +6,8 @@ import updateUser from "../../servicers/updateInfo";
 import createUser from "../../servicers/createUser";
 import getTasks from "../../servicers/getTasks";
 import deleteTask from "../../servicers/deleteTask";
+import addTask from "../../servicers/addTask";
+import changeTask from "../../servicers/changeTask";
 
 export default function AuthProvider({children}) {
     let [user, setUser] = useState(null);
@@ -31,13 +33,14 @@ export default function AuthProvider({children}) {
     };
 
     let createNewUser = (userLogin, userPassword, userFullname, callback) => {
-        return createUser.createNewUser(setUser, userLogin, userPassword, userFullname, () => {
-            callback();
-        });
+        return createUser.createNewUser(setUser, userLogin,
+            userPassword, userFullname, () => {
+                callback();
+            });
     };
 
-    let getUsersTasks = (userId, callback) => {
-        return getTasks.getUsersTasks(setTasks, userId, () => {
+    let getUsersTasks = (callback) => {
+        return getTasks.getUsersTasks(setTasks, user.id, () => {
             callback();
         });
     };
@@ -48,7 +51,30 @@ export default function AuthProvider({children}) {
         });
     };
 
-    let value = {user, tasks, signIn, signOut, updateInfo, createNewUser, getUsersTasks,deleteUsersTask};
+    let addNewTask = (taskTitle, callback) => {
+        return addTask.addNewTask(user.id, taskTitle, () => {
+            callback();
+        });
+    };
+
+    let updateTaskInfo = (taskInfo, callback) => {
+        return changeTask.updateTaskInfo(user.id, taskInfo, () => {
+            callback();
+        });
+    };
+
+    let value = {
+        user,
+        tasks,
+        signIn,
+        signOut,
+        updateInfo,
+        createNewUser,
+        updateTaskInfo,
+        getUsersTasks,
+        addNewTask,
+        deleteUsersTask
+    };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

@@ -9,18 +9,12 @@ const TodoCard = () => {
     let auth = useAuth();
     let navigate = useNavigate();
     let [userTasks, setUserTasks] = useState(null);
-    let [task, setTask] = useState({title:''} );
-    // if (!auth.tasks) {
-    //     (async () => {
-    //         console.log('Request to backend!');
-    //         const tasks = await auth.getUsersTasks(auth.user.username, () => navigate("/main"))
-    //     })()
-    // }
-    if (!userTasks) {
-        // setUserTask(previousState => {previousState = []})
-        // auth.tasks.map(task => setUserTask([...userTask, task]))
-        setUserTasks(auth.tasks)
+    let [task, setTask] = useState({title: ''});
+    if (userTasks !== auth.tasks) {
         console.log("Get tasks from server!")
+        setUserTasks(auth.tasks)
+        console.log(userTasks)
+        console.log(auth.tasks)
     }
     // if(!auth.tasks) {
     //
@@ -29,7 +23,6 @@ const TodoCard = () => {
     // if(auth.tasks) {
     //          auth.tasks.map(task => setUserTask([...userTask,task]))
     // }
-    console.log(userTasks)
 
     function onToggleItem(idTask) {
         console.log(idTask + ' - clicked!')
@@ -37,6 +30,7 @@ const TodoCard = () => {
             userTasks.map(task => {
                 if (task.id === idTask) {
                     task.is_active = !task.is_active
+                    auth.updateTaskInfo(task, () => navigate("/main"))
                 }
                 return task
             }))
@@ -48,10 +42,10 @@ const TodoCard = () => {
         auth.deleteUsersTask(idTask, () => navigate("/main"))
     }
 
-    function addTask(titleTask) {
-        console.log(titleTask + ' - added!')
-        setUserTasks(userTasks.filter(task => task.id !== idTask))
-        auth.deleteUsersTask(idTask, () => navigate("/main"))
+    function addTask() {
+        console.log(task.title)
+        auth.addNewTask(task.title, () => navigate("/main"))
+        auth.getUsersTasks(() => navigate("/main"))
     }
 
     function onChangeValue(inputValue) {
@@ -61,12 +55,14 @@ const TodoCard = () => {
         })
     }
 
+
     return (
         <div className="todo__card">
             <TodoMenu/>
             <div className="todo__search search">
                 <button className="search__button" onClick={addTask}>▼</button>
-                <input type="text" className="search__input" value={task.title} onChange={obj => onChangeValue(obj.target.value)}
+                <input type="text" className="search__input" value={task.title}
+                       onChange={obj => onChangeValue(obj.target.value)}
                        placeholder="Your task?"/>
             </div>
             <div className="todo__body">

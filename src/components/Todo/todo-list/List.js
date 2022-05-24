@@ -12,7 +12,7 @@ const List = ({todos, onToggleItem, deleteTask}) => {
         <ul className={'menu__counter'}>
             {todos.map(todo => <Item id={todo.id}
                                      title={todo.title}
-                                     isActive={todo.isActive}
+                                     isActive={todo.is_active}
                                      onChange={() => onToggleItem(todo.id)}
                                      deleteTask = {() => deleteTask(todo.id)}
             />)}

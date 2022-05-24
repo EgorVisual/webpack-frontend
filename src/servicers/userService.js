@@ -49,6 +49,29 @@ export default class UserService {
         const tasks = (await api.delete('/api/task/' + taskId + '/'));
     }
 
+    async addTaskRequest(userId, taskTitle) {
+        const res = (await api.post('/api/task/', {
+            title: taskTitle,
+            description: 'empty',
+            is_active: true,
+            user: userId
+        }))
+        return
+    }
+
+    async updateTaskInfo(userId, taskInfo) {
+        console.log('updateTaskInfo')
+        console.log(userId)
+        console.log(taskInfo)
+        const res = (await api.put('/api/task/' + taskInfo.id + '/', {
+            title: taskInfo.title,
+            description: taskInfo.description,
+            is_active: taskInfo.is_active,
+            user: userId
+        }));
+        return
+    }
+
     // async getUsersTasks(username) {
     //     const tasks = (await api.get('/api/task/'));
     //     return tasks.data

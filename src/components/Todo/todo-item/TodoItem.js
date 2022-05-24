@@ -10,6 +10,8 @@ const TodoItem = ({id, title, isActive, onChange, deleteTask}) => {
             <span><input className={'todo-item__checkbox'}
                          type="checkbox"
                          onChange={onChange}
+                         checked={isActive}
+
             />
             </span>
             <span className={'todo-item__text'}>{title}</span>
