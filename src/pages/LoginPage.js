@@ -18,6 +18,7 @@ const LoginPage = () => {
         let username = formData.get("username");
         let password = formData.get("password");
 
+
         auth.signIn(username, password, () => {
             // Send them back to the page they tried to visit when they were
             // redirected to the login page. Use { replace: true } so we don't create

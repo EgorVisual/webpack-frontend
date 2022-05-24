@@ -23,7 +23,7 @@ export default class UserService {
     async createNewUserRequest(userLogin, userPassword, userFullname) {
         const user = (await api.get('/api/user/')).data.filter(user => ((user.username === userLogin) || (user.password === userPassword)))[0];
         console.log(user)
-        if(user){
+        if (user) {
             return null
         }
         const res = (await api.post('/api/user/', {
@@ -36,6 +36,23 @@ export default class UserService {
         console.log(res)
         return res.data
     }
+
+    async getList(userId) {
+        console.log(userId)
+        const tasks = (await api.get('/api/task/?id=' + userId));
+        console.log(tasks)
+        return tasks.data
+    }
+
+    async deleteItem(taskId) {
+        console.log(taskId)
+        const tasks = (await api.delete('/api/task/' + taskId + '/'));
+    }
+
+    // async getUsersTasks(username) {
+    //     const tasks = (await api.get('/api/task/'));
+    //     return tasks.data
+    // }
 
     async getUserInfo() {
         const id = 1;

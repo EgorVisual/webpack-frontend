@@ -7,7 +7,6 @@ import {useNavigate} from "react-router-dom";
 const ConfigurationCard = () => {
     let auth = useAuth();
     let navigate = useNavigate();
-    const service = new UserService();
     let [userInfo, setUserInfo] = useState({
         username: auth.user.username,
         password: auth.user.password,
@@ -30,8 +29,6 @@ const ConfigurationCard = () => {
     }
 
     function onChangeInput(parameter, inputValue) {
-        console.log(parameter)
-        console.log(inputValue)
         setUserInfo(previousState => {
             previousState[parameter] = inputValue;
             return {...previousState}
