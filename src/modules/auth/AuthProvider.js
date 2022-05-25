@@ -52,7 +52,7 @@ export default function AuthProvider({children}) {
     };
 
     let addNewTask = (taskTitle, callback) => {
-        return addTask.addNewTask(user.id, taskTitle, () => {
+        return addTask.addNewTask(setTasks, user.id, taskTitle, () => {
             callback();
         });
     };
@@ -71,9 +71,10 @@ export default function AuthProvider({children}) {
         updateInfo,
         createNewUser,
         updateTaskInfo,
-        getUsersTasks,
         addNewTask,
-        deleteUsersTask
+        deleteUsersTask,
+        getUsersTasks
+
     };
 
     return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;

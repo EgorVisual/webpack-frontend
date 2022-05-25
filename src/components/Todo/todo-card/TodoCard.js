@@ -44,8 +44,31 @@ const TodoCard = () => {
 
     function addTask() {
         console.log(task.title)
-        auth.addNewTask(task.title, () => navigate("/main"))
-        auth.getUsersTasks(() => navigate("/main"))
+        if (task.title !== '') {
+            auth.addNewTask(task.title, () => navigate("/main"))
+        } else {
+            (async () => {
+                try {
+                    const permission = await Notification.requestPermission();
+                    console.log(permission);
+                    const options = {
+                        dir: 'rtl',
+                        body: "Bad",
+                    };
+                    const n = new Notification("ww", options);
+                    console.log(n);
+                    await new Promise(resolve => {
+                        setTimeout(() => {
+                            n.close();
+                            resolve();
+                        }, 5000);
+                    });
+                } catch (error) {
+                    console.log(error);
+                }
+            })();
+        }
+        // auth.getUsersTasks(() => navigate("/main"))
     }
 
     function onChangeValue(inputValue) {

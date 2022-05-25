@@ -22,7 +22,6 @@ export default class UserService {
 
     async createNewUserRequest(userLogin, userPassword, userFullname) {
         const user = (await api.get('/api/user/')).data.filter(user => ((user.username === userLogin) || (user.password === userPassword)))[0];
-        console.log(user)
         if (user) {
             return null
         }
@@ -33,19 +32,20 @@ export default class UserService {
             role: 'none',
             group: 'none'
         }));
-        console.log(res)
         return res.data
     }
 
     async getList(userId) {
-        console.log(userId)
         const tasks = (await api.get('/api/task/?id=' + userId));
+        console.log('GetList')
+        console.log(userId + ' User id')
         console.log(tasks)
+        console.log('/GetList')
         return tasks.data
+
     }
 
     async deleteItem(taskId) {
-        console.log(taskId)
         const tasks = (await api.delete('/api/task/' + taskId + '/'));
     }
 
@@ -56,6 +56,10 @@ export default class UserService {
             is_active: true,
             user: userId
         }))
+        console.log('addTaskRequest')
+        console.log(userId)
+        console.log(res)
+        console.log('/addTaskRequest')
         return
     }
 
@@ -63,6 +67,7 @@ export default class UserService {
         console.log('updateTaskInfo')
         console.log(userId)
         console.log(taskInfo)
+        console.log('/updateTaskInfo')
         const res = (await api.put('/api/task/' + taskInfo.id + '/', {
             title: taskInfo.title,
             description: taskInfo.description,
