@@ -2,13 +2,16 @@ import UserService from "./userService";
 
 const authorization = {
     isAuthenticated: false,
-    signIn(setUser, userLogin, userPassword, callback) {
+    signIn(setUser, setTasks, userLogin, userPassword, callback) {
         const service = new UserService();
         (async () => {
             const user = await service.checkUserInfo(userLogin, userPassword);
             console.log(user)
             if (user) {
                 setUser(user)
+                const tasks = await service.getList(user.id);
+                setTasks(tasks)
+                console.log(tasks)
                 authorization.isAuthenticated = true;
             }
         })()

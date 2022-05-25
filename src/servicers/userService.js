@@ -22,8 +22,7 @@ export default class UserService {
 
     async createNewUserRequest(userLogin, userPassword, userFullname) {
         const user = (await api.get('/api/user/')).data.filter(user => ((user.username === userLogin) || (user.password === userPassword)))[0];
-        console.log(user)
-        if(user){
+        if (user) {
             return null
         }
         const res = (await api.post('/api/user/', {
@@ -33,9 +32,55 @@ export default class UserService {
             role: 'none',
             group: 'none'
         }));
-        console.log(res)
         return res.data
     }
+
+    async getList(userId) {
+        const tasks = (await api.get('/api/task/?id=' + userId));
+        console.log('GetList')
+        console.log(userId + ' User id')
+        console.log(tasks)
+        console.log('/GetList')
+        return tasks.data
+
+    }
+
+    async deleteItem(taskId) {
+        const tasks = (await api.delete('/api/task/' + taskId + '/'));
+    }
+
+    async addTaskRequest(userId, taskTitle) {
+        const res = (await api.post('/api/task/', {
+            title: taskTitle,
+            description: 'empty',
+            is_active: true,
+            user: userId
+        }))
+        console.log('addTaskRequest')
+        console.log(userId)
+        console.log(res)
+        console.log('/addTaskRequest')
+        return
+    }
+
+    async updateTaskInfo(userId, taskInfo) {
+        console.log('updateTaskInfo')
+        console.log(userId)
+        console.log(taskInfo)
+        console.log('/updateTaskInfo')
+        const res = (await api.put('/api/task/' + taskInfo.id + '/', {
+            title: taskInfo.title,
+            description: taskInfo.description,
+            is_active: taskInfo.is_active,
+            user: userId
+        }));
+        return
+    }
+
+    // async getUsersTasks(username) {
+    //     const tasks = (await api.get('/api/task/'));
+    //     return tasks.data
+    // }
 
     async getUserInfo() {
         const id = 1;

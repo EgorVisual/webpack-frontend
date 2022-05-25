@@ -6,8 +6,6 @@ const updateUser = {
         (async () => {
             const user = await service.updateUserInfo(userId, userInfo);
             setUser(user)
-            console.log(userInfo)
-            console.log(user)
         })()
         setTimeout(callback, 100); // fake async
     },
