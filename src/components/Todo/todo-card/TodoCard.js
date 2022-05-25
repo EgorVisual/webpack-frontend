@@ -79,7 +79,7 @@ const TodoCard = () => {
         })
     }
 
-    function onChangeItem(idTask,inputValue , type) {
+    function onChangeItem(idTask, inputValue, type) {
         console.log(idTask + ' - changed!')
         console.log(idTask)
         console.log(inputValue)
@@ -96,22 +96,25 @@ const TodoCard = () => {
 
 
     return (
-        <div className="todo__card">
-            {/*<TodoMenu/>*/}
-            <div className="todo__search search">
-                <button className="search__button" onClick={addTask}>▼</button>
-                <div>
-                    <input type="text" className="search__input_title" value={task.title}
-                           onChange={obj => onSetValue(obj.target.value, 'title')}
-                           placeholder="Your task?"/>
-                    <input type="text" className="search__input_description" value={task.description}
-                           onChange={obj => onSetValue(obj.target.value, 'description')}
-                           placeholder="Your description?"/>
+        <div>
+            <div className="todo__enter">
+                <div className="todo__search search">
+                    <button className="search__button" onClick={addTask}>Add</button>
+                    <div>
+                        <input type="text" className="search__input_title" value={task.title}
+                               onChange={obj => onSetValue(obj.target.value, 'title')}
+                               placeholder="Your task?"/>
+                        <input type="text" className="search__input_description" value={task.description}
+                               onChange={obj => onSetValue(obj.target.value, 'description')}
+                               placeholder="Your description?"/>
+                    </div>
                 </div>
             </div>
-            <div className="todo__body">
-                <List todos={userTasks} onChangeItem={onChangeItem} onToggleItem={onToggleItem}
-                      deleteTask={deleteTask}/>
+            <div className="todo__card">
+                <div className="todo__body">
+                    <List todos={userTasks} onChangeItem={onChangeItem} onToggleItem={onToggleItem}
+                          deleteTask={deleteTask}/>
+                </div>
             </div>
         </div>
     )

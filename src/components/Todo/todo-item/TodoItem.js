@@ -5,7 +5,7 @@ const Item = ({id, title, description, isActive, onToggleItem, onChangeItem, del
     // if (!isActive)
     //     classNames.push('todo__item_done')
     return (
-        <div>
+        <div className="todo__form">
             <div className={"todo__item todo-item"}>
             <span><input className={"todo-item__checkbox"}
                          type="checkbox"
