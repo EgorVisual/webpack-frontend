@@ -17,14 +17,14 @@ export default function App() {
             <Routes>
               <Route path="/" element={<PublicPage />} />
               <Route path="/login" element={<LoginPage />} />
-              <Route
-                path="/protected"
-                element={
-                  <RequireAuth>
-                     <ProtectedPage />
-                  </RequireAuth>
-                }
-              />
+              {/*<Route*/}
+              {/*  path="/protected"*/}
+              {/*  element={*/}
+              {/*    <RequireAuth>*/}
+              {/*       <ProtectedPage />*/}
+              {/*    </RequireAuth>*/}
+              {/*  }*/}
+              {/*/>*/}
                 <Route exact path="/main" element={
                   <RequireAuth>
                     <TodoMain/>

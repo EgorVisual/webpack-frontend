@@ -45,7 +45,7 @@ const TodoCard = () => {
     function addTask() {
         console.log(task.title)
         if (task.title !== '' && task.description !== '') {
-            auth.addNewTask(task.title,task.description, () => navigate("/main"))
+            auth.addNewTask(task.title, task.description, () => navigate("/main"))
         } else {
             (async () => {
                 try {
@@ -71,11 +71,26 @@ const TodoCard = () => {
         // auth.getUsersTasks(() => navigate("/main"))
     }
 
-    function onChangeValue(inputValue, type) {
+    function onSetValue(inputValue, type) {
         setTask(previousState => {
             previousState[type] = inputValue;
             return {...previousState}
         })
+    }
+
+    function onChangeItem(idTask,inputValue , type) {
+        console.log(idTask + ' - changed!')
+        console.log(idTask + ' - changed!')
+        console.log(inputValue)
+        console.log(idTask + ' - changed!')
+        setUserTasks(
+            userTasks.map(task => {
+                if (task.id === idTask) {
+                    task[type] = inputValue
+                    auth.updateTaskInfo(task, () => navigate("/main"))
+                }
+                return task
+            }))
     }
 
 
@@ -86,15 +101,16 @@ const TodoCard = () => {
                 <button className="search__button" onClick={addTask}>▼</button>
                 <div>
                     <input type="text" className="search__input_title" value={task.title}
-                           onChange={obj => onChangeValue(obj.target.value,'title')}
+                           onChange={obj => onSetValue(obj.target.value, 'title')}
                            placeholder="Your task?"/>
                     <input type="text" className="search__input_description" value={task.description}
-                           onChange={obj => onChangeValue(obj.target.value,'description')}
+                           onChange={obj => onSetValue(obj.target.value, 'description')}
                            placeholder="Your description?"/>
                 </div>
             </div>
             <div className="todo__body">
-                <List todos={userTasks} onToggleItem={onToggleItem} deleteTask={deleteTask}/>
+                <List todos={userTasks} onChangeItem={onChangeItem} onToggleItem={onToggleItem}
+                      deleteTask={deleteTask}/>
             </div>
         </div>
     )
