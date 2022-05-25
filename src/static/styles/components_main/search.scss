@@ -3,6 +3,7 @@
   background: white;
 
   &__input {
+    &_title {
     font-style: oblique;
     width: 600px;
     padding: 10px 0px;
@@ -12,6 +13,19 @@
     align-items: center;
     border: none;
     font-size: 18px;
+    }
+
+    &_description {
+    font-style: oblique;
+    width: 600px;
+    padding: 10px 0px;
+    outline: none;
+    margin: auto;
+    text-align: center;
+    align-items: center;
+    border: none;
+    font-size: 18px;
+    }
   }
 
   &__button {

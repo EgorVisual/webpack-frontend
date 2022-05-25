@@ -49,10 +49,10 @@ export default class UserService {
         const tasks = (await api.delete('/api/task/' + taskId + '/'));
     }
 
-    async addTaskRequest(userId, taskTitle) {
+    async addTaskRequest(userId, taskTitle, taskDescription) {
         const res = (await api.post('/api/task/', {
             title: taskTitle,
-            description: 'empty',
+            description: taskDescription,
             is_active: true,
             user: userId
         }))
