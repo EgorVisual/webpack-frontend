@@ -3,7 +3,7 @@ import TodoCard from "../todo-card/TodoCard";
 
 const TodoMain = () => {
     return (
-        <div>
+        <div className={'todo__body'}>
             <TodoCard/>
         </div>
     );

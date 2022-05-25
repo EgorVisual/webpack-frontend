@@ -1,22 +1,18 @@
 import React from 'react';
 import Item from "../todo-item/TodoItem";
 
-const styles = {
-    ul: {
-        listStyle: 'none',
-        background: 'yellow',
-    }
-}
-const List = ({todos, onToggleItem, deleteTask}) => {
+const List = ({todos,onChangeItem, onToggleItem, deleteTask}) => {
     return (
-        <ul className={'menu__counter'}>
+        <div>
             {todos.map(todo => <Item id={todo.id}
                                      title={todo.title}
+                                     description={todo.description}
                                      isActive={todo.is_active}
-                                     onChange={() => onToggleItem(todo.id)}
+                                     onToggleItem={() => onToggleItem(todo.id)}
+                                     onChangeItem={onChangeItem}
                                      deleteTask = {() => deleteTask(todo.id)}
             />)}
-        </ul>
+        </div>
     );
 };
 

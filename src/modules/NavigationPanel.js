@@ -9,9 +9,9 @@ const NavigationPanel = () => {
         <span className='navigation-panel__button'>
           <Link to="/">Public Page</Link>
         </span>
-        <span className='navigation-panel__button'>
-          <Link to="/protected">Protected Page</Link>
-        </span>
+        {/*<span className='navigation-panel__button'>*/}
+        {/*  <Link to="/protected">Protected Page</Link>*/}
+        {/*</span>*/}
         <span className='navigation-panel__button'>
           <Link to="/config">Config Page</Link>
         </span>

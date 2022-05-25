@@ -1,10 +1,10 @@
 import UserService from "./userService";
 
 const addTask = {
-    addNewTask(setTasks, userId, taskTitle, callback) {
+    addNewTask(setTasks, userId, taskTitle,taskDescription, callback) {
         const service = new UserService();
         (async () => {
-            await service.addTaskRequest(userId, taskTitle);
+            await service.addTaskRequest(userId, taskTitle,taskDescription);
             const tasks = await service.getList(userId);
             if (tasks) {
                 setTasks(tasks)

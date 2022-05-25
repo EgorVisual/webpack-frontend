@@ -2,7 +2,7 @@ import React from 'react';
 import {useLocation} from "react-router";
 import {useNavigate} from "react-router-dom";
 import useAuth from "../hooks/auth";
-import "E:/Учёба 2 сем/Стратегии и Методы/webpack-frontend/src/static/styles/components_auth/login.scss";
+import "../static/styles/components_auth/login.scss";
 
 //TODO: здесь можно реализовать свою форму для login
 const LoginPage = () => {
@@ -52,9 +52,9 @@ const LoginPage = () => {
             <div>
             <form onSubmit={handleSubmit}>
                 <label>
-                    <h1 className="autorization">Autorisation</h1>
-                    <div><input type="text" placeholder="Username"/></div>
-                    <div><input type="text" placeholder="Password"/></div>
+                    <h1 className="auth">Autorisation</h1>
+                    <div><input type="text" name="username" placeholder="Username"/></div>
+                    <div><input type="text" name="password" placeholder="Password"/></div>
                 </label>{" "}
                 <button type="submit">Login</button>
                 <button type="reset">Reset</button>
@@ -62,9 +62,9 @@ const LoginPage = () => {
             <form onSubmit={registrate}>
                 <label>
                     <h1 className="auth">Registration</h1>
-                    <div><input type="text" placeholder="Username"/></div>
-                    <div><input type="text" placeholder="Password"/></div>
-                    <div><input type="text" placeholder="Fullname"/></div>
+                    <div><input type="text" name="username" placeholder="Username"/></div>
+                    <div><input type="text" name="password" placeholder="Password"/></div>
+                    <div><input type="text" name="fullname" placeholder="Fullname"/></div>
                 </label>{" "}
                 <button type="submit">Register</button>
                 <button type="reset">Reset</button>

@@ -45,8 +45,8 @@ const TodoCard = () => {
 
     function addTask() {
         console.log(task.title)
-        if (task.title !== '') {
-            auth.addNewTask(task.title, () => navigate("/main"))
+        if (task.title !== '' && task.description !== '') {
+            auth.addNewTask(task.title, task.description, () => navigate("/main"))
         } else {
             (async () => {
                 try {
@@ -72,11 +72,26 @@ const TodoCard = () => {
         // auth.getUsersTasks(() => navigate("/main"))
     }
 
-    function onChangeValue(inputValue) {
+    function onSetValue(inputValue, type) {
         setTask(previousState => {
-            previousState['title'] = inputValue;
+            previousState[type] = inputValue;
             return {...previousState}
         })
+    }
+
+    function onChangeItem(idTask,inputValue , type) {
+        console.log(idTask + ' - changed!')
+        console.log(idTask)
+        console.log(inputValue)
+        console.log(type)
+        setUserTasks(
+            userTasks.map(task => {
+                if (task.id === idTask) {
+                    task[type] = inputValue
+                    auth.updateTaskInfo(task, () => navigate("/main"))
+                }
+                return task
+            }))
     }
 
 
@@ -85,15 +100,22 @@ const TodoCard = () => {
             <TodoMenu/>
             <div className="todo__search search">
                 <button className="search__button" onClick={addTask}>▼</button>
-                <input type="text" className="search__input" value={task.title}
-                       onChange={obj => onChangeValue(obj.target.value)}
-                       placeholder="Your task?"/>
+                <div>
+                    <input type="text" className="search__input_title" value={task.title}
+                           onChange={obj => onSetValue(obj.target.value, 'title')}
+                           placeholder="Your task?"/>
+                    <input type="text" className="search__input_description" value={task.description}
+                           onChange={obj => onSetValue(obj.target.value, 'description')}
+                           placeholder="Your description?"/>
+                </div>
             </div>
             <div className="todo__body">
-                <List todos={userTasks} onToggleItem={onToggleItem} deleteTask={deleteTask}/>
+                <List todos={userTasks} onChangeItem={onChangeItem} onToggleItem={onToggleItem}
+                      deleteTask={deleteTask}/>
             </div>
         </div>
-    );
+    )
+        ;
 };
 
 export default TodoCard

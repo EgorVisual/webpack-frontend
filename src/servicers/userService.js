@@ -10,6 +10,53 @@ export default class UserService {
         return user
     }
 
+//     {
+//     "id": 1,
+//     "username": "q",
+//     "password": "q",
+//     "fullname": "q",
+//     "group": "none",
+//     "role": "none"
+// }
+
+//     [
+//     {
+//         "id": 103,
+//         "title": "wqe",
+//         "description": "weqeqee",
+//         "is_active": false,
+//         "user": 1
+//     },
+//     {
+//         "id": 104,
+//         "title": "weweew",
+//         "description": "wewe",
+//         "is_active": false,
+//         "user": 1
+//     },
+//     {
+//         "id": 106,
+//         "title": "Task3",
+//         "description": "My third task!",
+//         "is_active": false,
+//         "user": 1
+//     },
+//          {
+//         "id": 174,
+//         "title": "wewee222222222222222222w",
+//         "description": "wewe222222222222222222222",
+//         "is_active": false,
+//         "user": 1
+//     },
+//     {
+//         "id": 154,
+//         "title": "Task32323",
+//         "description": "My third t22222222222222ask!",
+//         "is_active": false,
+//         "user": 1
+//     }
+// ]
+
     async updateUserInfo(userId, userInfo) {
         const res = (await api.put('/api/user/' + userId + '/', {
             username: userInfo.username,
@@ -80,10 +127,10 @@ export default class UserService {
         const tasks = (await api.delete('/api/task/' + taskId + '/'));
     }
 
-    async addTaskRequest(userId, taskTitle) {
+    async addTaskRequest(userId, taskTitle, taskDescription) {
         const res = (await api.post('/api/task/', {
             title: taskTitle,
-            description: 'empty',
+            description: taskDescription,
             is_active: true,
             user: userId
         }))

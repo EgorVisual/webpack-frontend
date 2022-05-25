@@ -51,8 +51,8 @@ export default function AuthProvider({children}) {
         });
     };
 
-    let addNewTask = (taskTitle, callback) => {
-        return addTask.addNewTask(setTasks, user.id, taskTitle, () => {
+    let addNewTask = (taskTitle,taskDescription, callback) => {
+        return addTask.addNewTask(setTasks, user.id, taskTitle,taskDescription, () => {
             callback();
         });
     };
