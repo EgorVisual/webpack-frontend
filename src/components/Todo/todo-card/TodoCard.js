@@ -97,7 +97,7 @@ const TodoCard = () => {
 
     return (
         <div className="todo__card">
-            <TodoMenu/>
+            {/*<TodoMenu/>*/}
             <div className="todo__search search">
                 <button className="search__button" onClick={addTask}>▼</button>
                 <div>

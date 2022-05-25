@@ -3,6 +3,7 @@ import UserService from "../../../servicers/userService";
 import ConfigInfoInput from "../conf-info/ConfigInfoInput";
 import useAuth from "../../../hooks/auth";
 import {useNavigate} from "react-router-dom";
+import "../../../static/styles/configuration.scss";
 
 const ConfigurationCard = () => {
     let auth = useAuth();
@@ -38,7 +39,7 @@ const ConfigurationCard = () => {
     return (
         <div className="conf__card">
             <div className="conf__header">
-                <h1>Personal information.</h1>
+                <h2>Personal information</h2>
             </div>
             <div className="conf__info">
                 <div className="conf__info__warning warning">

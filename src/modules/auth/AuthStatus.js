@@ -1,27 +1,42 @@
 import React from 'react';
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import useAuth from "../../hooks/auth";
+import "../../static/styles/authorizationStatus.scss";
+
+
 const AuthStatus = () => {
-  let auth = useAuth();
-  let navigate = useNavigate();
+    let auth = useAuth();
+    let navigate = useNavigate();
 
-  if (!auth.user) {
-    return( <><p>You are not logged in.</p></>)
-  }
+    if (!auth.user) {
 
-  return (
-    <p>
+        return (<div className="place">
+            <div className="place_text"><p>You are not logged in.</p></div>
+        </div>)
+    }
 
-      Welcome {auth.user.username}!{" "}
-      <button
-        onClick={() => {
-          auth.signOut(() => navigate("/"));
-        }}
-      >
-        Sign out
-      </button>
-    </p>
-  );
+    return (
+        <div className="place">
+            <div className="place_text">
+                {/*<p>*/}
+                <span>
+                    <a
+                        href=""
+                        className="double-border-button"
+                        onClick={() => {
+                            auth.signOut(() => navigate("/"));
+                        }}
+                    >
+                        Sign out
+                    </a>
+                        </span>
+                <span>
+                    Welcome {auth.user.username}!{" "}
+                        </span>
+                {/*</p>*/}
+            </div>
+        </div>
+    );
 };
 
 export default AuthStatus

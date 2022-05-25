@@ -1,0 +1,44 @@
+.place {
+  vertical-align: middle;
+  display: flex;
+  text-align: right;
+  color: #EBD7D7;
+}
+
+.place_text {
+  width: 400px;
+  margin-top: 10px;
+  //margin-right: 10px;
+}
+
+.double-border-button {
+  text-decoration: none;
+  display: inline-block;
+  margin: 1px 20px;
+  padding: 10px 30px;
+  position: relative;
+  border: 2px solid #EBD7D7;
+  color: #EBD7D7;
+  font-family: 'Montserrat', sans-serif;
+  transition: .4s;
+}
+
+.double-border-button:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  border: 2px solid rgba(0, 0, 0, 0);
+  transition: .4s;
+}
+
+.double-border-button:hover:after {
+  border-color: #EBD7D7;
+  width: calc(100% - 10px);
+  height: calc(100% + 10px);
+}
