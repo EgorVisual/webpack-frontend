@@ -17,7 +17,7 @@ const Item = ({id, title, description, isActive, onToggleItem, onChangeItem, del
                        className={"todo-item__text"}
                        value={title}
                        placeholder={title}
-                       onChange={obj => onChangeItem({id:id, inputValue: obj.target.value, type:'title'})}
+                       onChange={obj => onChangeItem(id, obj.target.value, 'title')}
                 />
                 <button className={"todo-item__delete"} onClick={deleteTask}> *</button>
             </div>
@@ -26,7 +26,7 @@ const Item = ({id, title, description, isActive, onToggleItem, onChangeItem, del
                        className={'description__text'}
                        value={description}
                        placeholder={description}
-                       onChange={obj => onChangeItem({id:id, inputValue: obj.target.value, type:'description'})}
+                       onChange={obj => onChangeItem(id, obj.target.value, 'description')}
                 />
             </div>
         </div>

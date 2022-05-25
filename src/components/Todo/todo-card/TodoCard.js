@@ -80,9 +80,9 @@ const TodoCard = () => {
 
     function onChangeItem(idTask,inputValue , type) {
         console.log(idTask + ' - changed!')
-        console.log(idTask + ' - changed!')
+        console.log(idTask)
         console.log(inputValue)
-        console.log(idTask + ' - changed!')
+        console.log(type)
         setUserTasks(
             userTasks.map(task => {
                 if (task.id === idTask) {
