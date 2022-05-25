@@ -2,6 +2,7 @@ import React from 'react';
 import {useLocation} from "react-router";
 import {useNavigate} from "react-router-dom";
 import useAuth from "../hooks/auth";
+import "E:/Учёба 2 сем/Стратегии и Методы/webpack-frontend/src/static/styles/components_auth/login.scss";
 
 //TODO: здесь можно реализовать свою форму для login
 const LoginPage = () => {
@@ -48,15 +49,18 @@ const LoginPage = () => {
     return (
         <div>
             <p>You must log in or register a new user to view the page at {from}</p>
-            <form onSubmit={handleSubmit}>
+            <div>
+            <forml onSubmit={handleSubmit}>
                 <label>
                     <div>Username: <input name="username" type="text"/></div>
                     <div>Password: <input name="password" type="text"/></div>
                 </label>{" "}
                 <button type="submit">Login</button>
                 <button type="reset">Reset</button>
-            </form>
-            <form onSubmit={registrate}>
+            </forml>
+            </div>
+            <div>
+            <forml onSubmit={registrate}>
                 <label>
                     <div>Username: <input name="username" type="text"/></div>
                     <div>Password: <input name="password" type="text"/></div>
@@ -64,7 +68,8 @@ const LoginPage = () => {
                 </label>{" "}
                 <button type="submit">Registrate</button>
                 <button type="reset">Reset</button>
-            </form>
+            </forml>
+            </div>
         </div>
     );
 };

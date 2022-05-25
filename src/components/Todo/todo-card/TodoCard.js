@@ -26,6 +26,7 @@ const TodoCard = () => {
 
     function onToggleItem(idTask) {
         console.log(idTask + ' - clicked!')
+        console.log(userTasks)
         setUserTasks(
             userTasks.map(task => {
                 if (task.id === idTask) {

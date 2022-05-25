@@ -1,0 +1,15 @@
+forml {
+ /* Float both forms to the left */
+ float: left;
+ /* borders added for visibility. Just remove them */
+ border: 10px solid red;
+}
+forml#updateForm {
+ clear: right;
+ /* with some space to the left of the second form */
+ margin-right: 100px;
+}
+/* Give an id to the <p> which follows the second form and clear: both */
+p#submit {
+  clear: both;
+}

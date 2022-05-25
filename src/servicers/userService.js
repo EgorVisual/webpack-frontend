@@ -4,8 +4,9 @@ import authorization from "./auth";
 export default class UserService {
 
     async checkUserInfo(username, password) {
-        const user = (await api.get('/api/user/')).data.filter(
-            user => ((user.username === username) && (user.password === password)))[0];
+        // const user = (await api.get('/api/user/')).data.filter(
+        //     user => ((user.username === username) && (user.password === password)))[0];
+        const user = {id: 1, username: '1', password: '1', fullname: 'Egor Falameev', role: 'manager'}
         return user
     }
 
@@ -36,13 +37,43 @@ export default class UserService {
     }
 
     async getList(userId) {
-        const tasks = (await api.get('/api/task/?id=' + userId));
-        console.log('GetList')
-        console.log(userId + ' User id')
-        console.log(tasks)
-        console.log('/GetList')
-        return tasks.data
-
+        // const tasks = (await api.get('/api/task/?id=' + userId));
+        // console.log('GetList')
+        // console.log(userId + ' User id')
+        // console.log(tasks)
+        // console.log('/GetList')
+        // return tasks.data
+        const tasks = [
+            {
+                "id": 94,
+                "title": "Task1",
+                "description": "empty",
+                "is_active": false,
+                "user": 4
+            },
+            {
+                "id": 95,
+                "title": "Task2",
+                "description": "empty",
+                "is_active": false,
+                "user": 4
+            },
+            {
+                "id": 96,
+                "title": "Task2",
+                "description": "empty",
+                "is_active": false,
+                "user": 4
+            },
+            {
+                "id": 97,
+                "title": "Task2",
+                "description": "empty",
+                "is_active": false,
+                "user": 4
+            }
+        ]
+        return tasks
     }
 
     async deleteItem(taskId) {
