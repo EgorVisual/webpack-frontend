@@ -47,30 +47,30 @@ const LoginPage = () => {
     }
 
     return (
-        <div>
+        <body>
             <p>You must log in or register a new user to view the page at {from}</p>
             <div>
-            <forml onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
                 <label>
-                    <div>Username: <input name="username" type="text"/></div>
-                    <div>Password: <input name="password" type="text"/></div>
+                    <h1 className="autorization">Autorisation</h1>
+                    <div><input type="text" placeholder="Username"/></div>
+                    <div><input type="text" placeholder="Password"/></div>
                 </label>{" "}
                 <button type="submit">Login</button>
                 <button type="reset">Reset</button>
-            </forml>
-            </div>
-            <div>
-            <forml onSubmit={registrate}>
+            </form>
+            <form onSubmit={registrate}>
                 <label>
-                    <div>Username: <input name="username" type="text"/></div>
-                    <div>Password: <input name="password" type="text"/></div>
-                    <div>Fullname: <input name="fullname" type="text"/></div>
+                    <h1 className="auth">Registration</h1>
+                    <div><input type="text" placeholder="Username"/></div>
+                    <div><input type="text" placeholder="Password"/></div>
+                    <div><input type="text" placeholder="Fullname"/></div>
                 </label>{" "}
-                <button type="submit">Registrate</button>
+                <button type="submit">Register</button>
                 <button type="reset">Reset</button>
-            </forml>
+            </form>
             </div>
-        </div>
+        </body>
     );
 };
 
