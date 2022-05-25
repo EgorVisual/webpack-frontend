@@ -1,0 +1,39 @@
+body{
+    font-family:Sans-serif;
+    background: #DCDCDC;
+    justify-content:center;
+    align-items: center;
+}
+
+form {
+ /* Float both forms to the left */
+  float: left;
+  margin-right: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+ /* borders added for visibility. Just remove them */
+  border: 1px solid grey;
+  border-radius: 10px;
+  background: #696969;
+  align: center;
+}
+/* Give an id to the <p> which follows the second form and clear: both */
+p#submit {
+  clear: both;
+}
+
+.form2 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h1{
+    positon: absolute;
+    font-weight: 20;
+    font-size: 25px;
+    margin-top: 0px;
+}

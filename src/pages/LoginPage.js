@@ -2,6 +2,7 @@ import React from 'react';
 import {useLocation} from "react-router";
 import {useNavigate} from "react-router-dom";
 import useAuth from "../hooks/auth";
+import "../static/styles/components_auth/login.scss";
 
 //TODO: здесь можно реализовать свою форму для login
 const LoginPage = () => {
@@ -46,26 +47,30 @@ const LoginPage = () => {
     }
 
     return (
-        <div>
+        <body>
             <p>You must log in or register a new user to view the page at {from}</p>
+            <div>
             <form onSubmit={handleSubmit}>
                 <label>
-                    <div>Username: <input name="username" type="text"/></div>
-                    <div>Password: <input name="password" type="text"/></div>
+                    <h1 className="auth">Autorisation</h1>
+                    <div><input type="text" name="username" placeholder="Username"/></div>
+                    <div><input type="text" name="password" placeholder="Password"/></div>
                 </label>{" "}
                 <button type="submit">Login</button>
                 <button type="reset">Reset</button>
             </form>
             <form onSubmit={registrate}>
                 <label>
-                    <div>Username: <input name="username" type="text"/></div>
-                    <div>Password: <input name="password" type="text"/></div>
-                    <div>Fullname: <input name="fullname" type="text"/></div>
+                    <h1 className="auth">Registration</h1>
+                    <div><input type="text" name="username" placeholder="Username"/></div>
+                    <div><input type="text" name="password" placeholder="Password"/></div>
+                    <div><input type="text" name="fullname" placeholder="Fullname"/></div>
                 </label>{" "}
-                <button type="submit">Registrate</button>
+                <button type="submit">Register</button>
                 <button type="reset">Reset</button>
             </form>
-        </div>
+            </div>
+        </body>
     );
 };
 
