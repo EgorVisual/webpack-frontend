@@ -4,9 +4,9 @@ import authorization from "./auth";
 export default class UserService {
 
     async checkUserInfo(username, password) {
-        // const user = (await api.get('/api/user/')).data.filter(
-        //     user => ((user.username === username) && (user.password === password)))[0];
-        const user = {id: 1, username: '1', password: '1', fullname: 'Egor Falameev', role: 'manager'}
+        const user = (await api.get('/api/user/')).data.filter(
+            user => ((user.username === username) && (user.password === password)))[0];
+        // const user = {id: 1, username: '1', password: '1', fullname: 'Egor Falameev', role: 'manager'}
         return user
     }
 
@@ -84,50 +84,50 @@ export default class UserService {
     }
 
     async getList(userId) {
-        // const tasks = (await api.get('/api/task/?id=' + userId));
-        // console.log('GetList')
-        // console.log(userId + ' User id')
-        // console.log(tasks)
-        // console.log('/GetList')
-        // return tasks.data
-        const tasks = [
-            {
-                "id": 94,
-                "title": "Tasffffffffffffffffffffffffffffffk1",
-                "description": "emptfffffffffffffffffffffffffffy",
-                "is_active": false,
-                "user": 4
-            },
-            {
-                "id": 95,
-                "title": "Tafsk2",
-                "description": "emffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffpty",
-                "is_active": false,
-                "user": 4
-            },
-            {
-                "id": 96,
-                "title": "Tasffffffffffffffffffffk2",
-                "description": "empffffffffffffffffffffffffffffffffffffffffty",
-                "is_active": false,
-                "user": 4
-            },
-            {
-                "id": 97,
-                "title": "Tasfffffffffffffffffffffk2",
-                "description": "emffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffpty",
-                "is_active": false,
-                "user": 4
-            },
-                      {
-                "id": 97,
-                "title": "qw",
-                "description": "r",
-                "is_active": false,
-                "user": 4
-            }
-        ]
-        return tasks
+        const tasks = (await api.get('/api/task/?id=' + userId));
+        console.log('GetList')
+        console.log(userId + ' User id')
+        console.log(tasks)
+        console.log('/GetList')
+        return tasks.data
+        // const tasks = [
+        //     {
+        //         "id": 94,
+        //         "title": "Tasffffffffffffffffffffffffffffffk1",
+        //         "description": "emptfffffffffffffffffffffffffffy",
+        //         "is_active": false,
+        //         "user": 4
+        //     },
+        //     {
+        //         "id": 95,
+        //         "title": "Tafsk2",
+        //         "description": "emffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffpty",
+        //         "is_active": false,
+        //         "user": 4
+        //     },
+        //     {
+        //         "id": 96,
+        //         "title": "Tasffffffffffffffffffffk2",
+        //         "description": "empffffffffffffffffffffffffffffffffffffffffty",
+        //         "is_active": false,
+        //         "user": 4
+        //     },
+        //     {
+        //         "id": 97,
+        //         "title": "Tasfffffffffffffffffffffk2",
+        //         "description": "emffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffpty",
+        //         "is_active": false,
+        //         "user": 4
+        //     },
+        //               {
+        //         "id": 97,
+        //         "title": "qw",
+        //         "description": "r",
+        //         "is_active": false,
+        //         "user": 4
+        //     }
+        // ]
+        // return tasks
     }
 
     async deleteItem(taskId) {

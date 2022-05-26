@@ -1,67 +1,68 @@
 @import "components_main/components_main";
 
-h1{
-    color: #EBD7D7;
-    font-family: -apple-system;
-    font-weight: 400;
-    font-size: 80px;
-    margin: 0px 0px 0px 0px;
+h1 {
+  color: #EBD7D7;
+  font-family: -apple-system;
+  font-weight: 400;
+  font-size: 80px;
+  margin: 0px 0px 0px 0px;
 }
 
-h2{
-    font-family: Arial;
-    font-weight: bold;
-    font-size: 50px;
-    padding: 0;
+h2 {
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 50px;
+  padding: 0;
 }
 
-.todo__header{
-    border: none;
-    height: 30%;
-    width: 30%;
-    text-align: center;
-    margin: auto;
-    padding: 0;
-    background: transparent;
+.todo__header {
+  border: none;
+  height: 30%;
+  width: 30%;
+  text-align: center;
+  margin: auto;
+  padding: 0;
+  background: transparent;
 }
 
-.todo__card{
-    height: 60vh;
-    width: 60%;
-    margin: auto;
-    padding: 0;
-    background: transparent;
+.todo__card {
+  height: 60vh;
+  width: 60%;
+  margin: auto;
+  padding: 0;
+  background: transparent;
 }
 
-.todo__search{
-    outline: 1px solid #e2e1e1;
-    height: 20%;
-    width: 100%;
+.todo__search {
+  outline: 1px solid #e2e1e1;
+  height: 20%;
+  width: 100%;
 }
 
-.todo__body{
-    height: 100%;
-    width: 100%;
-    display: inline-block;
-    outline: 1px solid #e2e1e1;
-    overflow-y: scroll;
-    background: white;
+.todo__body {
+  height: 100%;
+  width: 33%;
+  display: inline-block;
+  outline: 1px solid #e2e1e1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: white;
 }
 
-.todo__menu{
-    height: 7%;
-    width: 100%;
-    outline: 1px solid #e2e1e1;
+.todo__menu {
+  height: 7%;
+  width: 100%;
+  outline: 1px solid #e2e1e1;
 }
 
-.todo__form{
- /* Float both forms to the left */
+.todo__form {
+  /* Float both forms to the left */
   float: left;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
- /* borders added for visibility. Just remove them */
+  /* borders added for visibility. Just remove them */
   border: 4px solid #696969;
   border-radius: 10px;
   background: #EBD7D7;
@@ -70,13 +71,13 @@ h2{
 }
 
 .todo__form#updateForm {
- float:left;
- clear: right;
- /* with some space to the left of the second form */
- margin-right: 100px;
+  float: left;
+  clear: right;
+  /* with some space to the left of the second form */
+  margin-right: 100px;
 }
 
-.todo__enter{
+.todo__enter {
   flex-direction: column;
   border: 1px solid grey;
   border-radius: 10px;

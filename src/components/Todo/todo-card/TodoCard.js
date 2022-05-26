@@ -57,7 +57,6 @@ const TodoCard = () => {
                         body: "Bad",
                     };
                     const n = new Notification("ww", options);
-                    console.log(n);
                     await new Promise(resolve => {
                         setTimeout(() => {
                             n.close();
@@ -111,6 +110,14 @@ const TodoCard = () => {
                 </div>
             </div>
             <div className="todo__card">
+                <div className="todo__body">
+                    <List todos={userTasks} onChangeItem={onChangeItem} onToggleItem={onToggleItem}
+                          deleteTask={deleteTask}/>
+                </div>
+                <div className="todo__body">
+                    <List todos={userTasks} onChangeItem={onChangeItem} onToggleItem={onToggleItem}
+                          deleteTask={deleteTask}/>
+                </div>
                 <div className="todo__body">
                     <List todos={userTasks} onChangeItem={onChangeItem} onToggleItem={onToggleItem}
                           deleteTask={deleteTask}/>
