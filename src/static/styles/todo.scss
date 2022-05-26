@@ -36,10 +36,18 @@ h2 {
   background: transparent;
 
   &_status {
+    text-align: center;
     height: 100%;
     width: 33%;
     background: transparent;
+    border-style: inset;
   }
+}
+
+.todo__card_name {
+  font-family: Сomic Sans MS, normal;
+  font-weight: 500;
+  font-size: 20px;
 }
 
 .todo__body {

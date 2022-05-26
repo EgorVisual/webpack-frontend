@@ -125,17 +125,17 @@ const TodoCard = () => {
                 </div>
                 <div className="todo__card">
                     <div className="todo__card_status">
-                        <span>Planned</span>
+                        <span className="todo__card_name">Planned</span>
                         <List todos={plannedTasks} onChangeItem={onChangeItem} onToggleItem={onToggleItem}
                               deleteTask={deleteTask}/>
                     </div>
                     <div className="todo__card_status">
-                        <span>Active</span>
+                        <span className="todo__card_name">Active</span>
                         <List todos={activeTasks} onChangeItem={onChangeItem} onToggleItem={onToggleItem}
                               deleteTask={deleteTask}/>
                     </div>
                     <div className="todo__card_status">
-                        <span>Completed</span>
+                        <span className="todo__card_name">Completed</span>
                         <List todos={completedTasks} onChangeItem={onChangeItem} onToggleItem={onToggleItem}
                               deleteTask={deleteTask}/>
                     </div>
