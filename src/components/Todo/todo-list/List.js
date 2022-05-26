@@ -7,7 +7,7 @@ const List = ({todos,onChangeItem, onToggleItem, deleteTask}) => {
             {todos.map(todo => <Item id={todo.id}
                                      title={todo.title}
                                      description={todo.description}
-                                     isActive={todo.is_active}
+                                     status={todo.status_task}
                                      onToggleItem={() => onToggleItem(todo.id)}
                                      onChangeItem={onChangeItem}
                                      deleteTask = {() => deleteTask(todo.id)}

@@ -6,56 +6,8 @@ export default class UserService {
     async checkUserInfo(username, password) {
         const user = (await api.get('/api/user/')).data.filter(
             user => ((user.username === username) && (user.password === password)))[0];
-        // const user = {id: 1, username: '1', password: '1', fullname: 'Egor Falameev', role: 'manager'}
         return user
     }
-
-//     {
-//     "id": 1,
-//     "username": "q",
-//     "password": "q",
-//     "fullname": "q",
-//     "group": "none",
-//     "role": "none"
-// }
-
-//     [
-//     {
-//         "id": 103,
-//         "title": "wqe",
-//         "description": "weqeqee",
-//         "is_active": false,
-//         "user": 1
-//     },
-//     {
-//         "id": 104,
-//         "title": "weweew",
-//         "description": "wewe",
-//         "is_active": false,
-//         "user": 1
-//     },
-//     {
-//         "id": 106,
-//         "title": "Task3",
-//         "description": "My third task!",
-//         "is_active": false,
-//         "user": 1
-//     },
-//          {
-//         "id": 174,
-//         "title": "wewee222222222222222222w",
-//         "description": "wewe222222222222222222222",
-//         "is_active": false,
-//         "user": 1
-//     },
-//     {
-//         "id": 154,
-//         "title": "Task32323",
-//         "description": "My third t22222222222222ask!",
-//         "is_active": false,
-//         "user": 1
-//     }
-// ]
 
     async updateUserInfo(userId, userInfo) {
         const res = (await api.put('/api/user/' + userId + '/', {
@@ -85,49 +37,7 @@ export default class UserService {
 
     async getList(userId) {
         const tasks = (await api.get('/api/task/?id=' + userId));
-        console.log('GetList')
-        console.log(userId + ' User id')
-        console.log(tasks)
-        console.log('/GetList')
         return tasks.data
-        // const tasks = [
-        //     {
-        //         "id": 94,
-        //         "title": "Tasffffffffffffffffffffffffffffffk1",
-        //         "description": "emptfffffffffffffffffffffffffffy",
-        //         "is_active": false,
-        //         "user": 4
-        //     },
-        //     {
-        //         "id": 95,
-        //         "title": "Tafsk2",
-        //         "description": "emffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffpty",
-        //         "is_active": false,
-        //         "user": 4
-        //     },
-        //     {
-        //         "id": 96,
-        //         "title": "Tasffffffffffffffffffffk2",
-        //         "description": "empffffffffffffffffffffffffffffffffffffffffty",
-        //         "is_active": false,
-        //         "user": 4
-        //     },
-        //     {
-        //         "id": 97,
-        //         "title": "Tasfffffffffffffffffffffk2",
-        //         "description": "emffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffpty",
-        //         "is_active": false,
-        //         "user": 4
-        //     },
-        //               {
-        //         "id": 97,
-        //         "title": "qw",
-        //         "description": "r",
-        //         "is_active": false,
-        //         "user": 4
-        //     }
-        // ]
-        // return tasks
     }
 
     async deleteItem(taskId) {
@@ -138,25 +48,17 @@ export default class UserService {
         const res = (await api.post('/api/task/', {
             title: taskTitle,
             description: taskDescription,
-            is_active: true,
+            status_task: 'planned',
             user: userId
         }))
-        console.log('addTaskRequest')
-        console.log(userId)
-        console.log(res)
-        console.log('/addTaskRequest')
         return
     }
 
     async updateTaskInfo(userId, taskInfo) {
-        console.log('updateTaskInfo')
-        console.log(userId)
-        console.log(taskInfo)
-        console.log('/updateTaskInfo')
         const res = (await api.put('/api/task/' + taskInfo.id + '/', {
             title: taskInfo.title,
             description: taskInfo.description,
-            is_active: taskInfo.is_active,
+            status_task: taskInfo.status_task,
             user: userId
         }));
         return

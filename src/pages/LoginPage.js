@@ -52,22 +52,22 @@ const LoginPage = () => {
             <div>
             <form onSubmit={handleSubmit}>
                 <label>
-                    <h1 className="auth">Autorisation</h1>
+                    <h1 className="authorization">Autorisation</h1>
                     <div><input type="text" name="username" placeholder="Username"/></div>
-                    <div><input type="text" name="password" placeholder="Password"/></div>
+                    <div><input type="password" name="password" placeholder="Password"/></div>
                 </label>{" "}
-                <button type="submit">Login</button>
-                <button type="reset">Reset</button>
+                <button className='authorization__button' type="submit">Login</button>
+                <button className='authorization__button' type="reset">Reset</button>
             </form>
             <form onSubmit={registrate}>
                 <label>
                     <h1 className="auth">Registration</h1>
                     <div><input type="text" name="username" placeholder="Username"/></div>
-                    <div><input type="text" name="password" placeholder="Password"/></div>
+                    <div><input type="password" name="password" placeholder="Password"/></div>
                     <div><input type="text" name="fullname" placeholder="Fullname"/></div>
                 </label>{" "}
-                <button type="submit">Register</button>
-                <button type="reset">Reset</button>
+                <button className='authorization__button' type="submit">Register</button>
+                <button className='authorization__button' type="reset">Reset</button>
             </form>
             </div>
         </body>
