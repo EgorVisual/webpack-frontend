@@ -99,7 +99,6 @@ const TodoCard = () => {
         <div>
             <div className="todo__enter">
                 <div className="todo__search search">
-                    <button className="search__button" onClick={addTask}>Add</button>
                     <div>
                         <input type="text" className="search__input_title" value={task.title}
                                onChange={obj => onSetValue(obj.target.value, 'title')}
@@ -108,6 +107,7 @@ const TodoCard = () => {
                                onChange={obj => onSetValue(obj.target.value, 'description')}
                                placeholder="Your description?"/>
                     </div>
+                    <button className="search__button" onClick={addTask}>Add</button>
                 </div>
             </div>
             <div className="todo__card">

@@ -1,36 +1,33 @@
 .search {
-  display: flex;
-  background: white;
+  align: center;
 
   &__input {
     &_title {
-    font-style: oblique;
-    width: 600px;
-    padding: 10px 0px;
-    outline: none;
+    positon: relative;
     margin: auto;
+    display: inline-block;
     text-align: center;
-    align-items: center;
-    border: none;
-    font-size: 18px;
+    height: 10%;
+    width: 98%;
+
+
     }
 
-    &_description {
-    font-style: oblique;
-    width: 600px;
-    padding: 10px 0px;
-    outline: none;
-    margin: auto;
-    text-align: center;
-    align-items: center;
-    border: none;
-    font-size: 18px;
+  &_description {
+   positon: relative;
+   margin: auto;
+   display: inline-block;
+   text-align: center;
+   height: 10%;
+   width: 98%;
     }
   }
 
   &__button {
-    font-size: 18px;
-    background: white;
+    font-size: 15px;
+    background: #EBD7D7;
+    border: 10px solid #EBD7D7;
+    border-radius: 10px;
     outline: none;
     border: none;
     cursor: pointer;
@@ -38,6 +35,7 @@
     padding: 10px 7px;
     margin: 10px 0px 10px 0px;
   }
+
 }
 
 

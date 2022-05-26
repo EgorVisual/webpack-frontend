@@ -34,7 +34,6 @@ h2{
 }
 
 .todo__search{
-    outline: 1px solid #e2e1e1;
     height: 20%;
     width: 100%;
 }
@@ -55,13 +54,11 @@ h2{
 }
 
 .todo__form{
- /* Float both forms to the left */
   float: left;
-  display: flex;
+  //display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
- /* borders added for visibility. Just remove them */
   border: 4px solid #696969;
   border-radius: 10px;
   background: #EBD7D7;
@@ -72,14 +69,17 @@ h2{
 .todo__form#updateForm {
  float:left;
  clear: right;
- /* with some space to the left of the second form */
  margin-right: 100px;
 }
 
 .todo__enter{
   flex-direction: column;
-  border: 1px solid grey;
+  border: 10px solid #696969;
   border-radius: 10px;
   background: #696969;
-  align: left;
+  align: center;
+  text-align: center;
+  width: 40%;
+  margin: 10px 0px 10px 0px;
+
 }
